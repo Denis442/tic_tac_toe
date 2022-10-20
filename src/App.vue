@@ -1,7 +1,6 @@
 <script setup>
 
     import {ref,computed} from 'vue'
-
     const player = ref('X'); 
 
     const board = ref(
@@ -9,7 +8,6 @@
             ['', '', ''],
             ['', '', ''],
             ['', '', ''],
-
         ]
     )
 
@@ -33,7 +31,6 @@
 }
 
     const winner = computed(() => CalculateWinner(board.value.flat()))
-
     const MakeMove = (x ,y) => {
         if (winner.value) return
 
@@ -50,19 +47,16 @@
             ['', '', ''],
             ['', '', ''],
         ]
-
         player.value = 'X'
     }
-
 </script>
 
 <template>
-
     <main class="pt-20 text-center 
                     dark:bg-gray-500
                     min-h-screen 
                     dark:text-white
-                    "
+                 "
     >
         <h1 class="mb-8 text-5xl font-bold uppercase">Tic Tac Toe</h1>
         <h3 class="text-3xl mb-4">Player {{player}}'s turn </h3>
@@ -89,22 +83,12 @@
                 >
                     {{cell === 'X' ? 'close' : cell === 'O' ? 'circle' : ''}}
                 </div>
-
-
-
             </div>
         </div> 
         
         <h2 v-if="winner" class="text-6xl font-bold mb-8">Player '{{winner}} wins!'</h2>
-
         <button @click="ResetGame" class="px-8 py-4 text-4xl bg-pink-500 rounded uppercase font-bold hover:bg-pink-800 duration-300">Reset Game</button>
     </main>
-
-
-
-
 </template>
-
 <style scoped>
-
 </style>
